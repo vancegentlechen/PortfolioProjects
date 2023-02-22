@@ -1,0 +1,7 @@
+SELECT CHAR_YEAR, CHAR_MON, cu.CUS_CODE , CUS_LNAME, CUS_PHONE,sum(distinct CHAR_DISTANCE) as ACCUM_DISTANCE
+FROM charter c
+join time_dim t
+on c.CHAR_DATE=t.CHAR_DATE
+join customer cu
+on c.CUS_CODE = cu.CUS_CODE
+GROUP BY CHAR_YEAR, CHAR_MON, cu.CUS_CODE
